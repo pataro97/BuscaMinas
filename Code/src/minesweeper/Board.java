@@ -13,7 +13,7 @@ import javafx.util.Pair;
 public class Board 
 {
     private int numberOfMines;	
-    private Cell cells[][];
+    private Casilla cells[][];
 
     private int rows;
     private int cols;
@@ -27,7 +27,7 @@ public class Board
         this.cols = c;
         this.numberOfMines = numberOfMines;
 
-        cells = new Cell[rows][cols];
+        cells = new Casilla[rows][cols];
 
         //Step 1: First create a board with empty Cells
         createEmptyCells();         
@@ -48,7 +48,7 @@ public class Board
         {
             for (int y = 0; y < rows; y++)
             {
-                cells[x][y] = new Cell();
+                cells[x][y] = new Casilla();
             }
         }
     }
@@ -69,11 +69,11 @@ public class Board
             // Generate a random y coordinate (between 0 and rows)
             y = (int)Math.floor(Math.random() * rows);
 
-            hasMine = cells[x][y].getMine();
+            hasMine = cells[x][y].cogeMina();
 
             if(!hasMine)
             {		
-                cells[x][y].setMine(true);
+                cells[x][y].seleccionaMina(true);
                 currentMines++;	
             }			
         }
@@ -112,7 +112,7 @@ public class Board
             {
                 // Skip (xCo, yCo), since that's no neighbour.
                 if(x != xCo || y != yCo)
-                    if(cells[x][y].getMine())   // If the neighbour contains a mine, neighbours++.
+                    if(cells[x][y].cogeMina())   // If the neighbour contains a mine, neighbours++.
                         neighbours++;
             }
         }
@@ -209,8 +209,8 @@ public class Board
                 {                                        
                     resultSet.next();
                     
-                    cells[x][y].setContent(resultSet.getString("CONTENT"));
-                    cells[x][y].setMine(resultSet.getBoolean("MINE"));
+                    cells[x][y].seleccionaContenido(resultSet.getString("CONTENT"));
+                    cells[x][y].seleccionaMina(resultSet.getBoolean("MINE"));
                     cells[x][y].setSurroundingMines(resultSet.getInt("SURROUNDING_MINES"));                    
                 }
             }
@@ -301,8 +301,8 @@ public class Board
             {
                 for(int y = 0 ; y < rows ; y++) 
                 {
-                    statement.setString(1, cells[x][y].getContent());
-                    statement.setBoolean(2, cells[x][y].getMine());
+                    statement.setString(1, cells[x][y].cogeContenido());
+                    statement.setBoolean(2, cells[x][y].cogeMina());
                     statement.setInt(3, (int)cells[x][y].getSurroundingMines());                    
 
                     statement.executeUpdate();
@@ -348,7 +348,7 @@ public class Board
         return numberOfMines;
     }
 
-    public Cell[][] getCells()
+    public Casilla[][] getCells()
     {
         return cells;
     }
@@ -370,7 +370,7 @@ public class Board
         {
             for(int y = 0 ; y < rows ; y++) 
             {
-                cells[x][y].setContent("");                        
+                cells[x][y].seleccionaContenido("");                        
             }
         }
     }

@@ -26,7 +26,7 @@ public class UI extends JFrame
     private boolean stopTimer;
     
     // Frame settings
-    private final String FRAME_TITLE = "Minesweeper ~ Developed by Haris Muneer";
+    private final String FRAME_TITLE = "Pablo Tamayo";
     
     private int FRAME_WIDTH = 520;
     private int FRAME_HEIGHT = 550;
@@ -156,15 +156,15 @@ public class UI extends JFrame
         //------------------Menu--------------------------//
         menuBar = new JMenuBar();
         
-        gameMenu = new JMenu("Game");
+        gameMenu = new JMenu("Juego");
          
-        newGame = new JMenuItem("   New Game");
-        statistics = new JMenuItem("   Statistics");
-        exit = new JMenuItem("   Exit");
+        newGame = new JMenuItem("   Nuevo Juego");
+        statistics = new JMenuItem("   Estadistica");
+        exit = new JMenuItem("   Salir");
 
-        newGame.setName("New Game");
-        statistics.setName("Statistics");
-        exit.setName("Exit");
+        newGame.setName("Nuevo Juego");
+        statistics.setName("Estadistica");
+        exit.setName("Salir");
 
         gameMenu.add(newGame);
         gameMenu.add(statistics);
