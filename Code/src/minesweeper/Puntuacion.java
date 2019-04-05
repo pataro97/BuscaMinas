@@ -12,7 +12,9 @@ import java.sql.Statement;
 import java.util.Collections;
 import java.util.Comparator;
 
-
+/*
+*Puntuacion Pablo
+*/
 public class Puntuacion
 {
     ArrayList<Time> bestTimes;
@@ -156,7 +158,7 @@ public class Puntuacion
         ResultSet resultSet = null;
 
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
 
             connection = DriverManager.getConnection(dbURL); 
             statement = connection.createStatement();
@@ -221,7 +223,7 @@ public class Puntuacion
         
 
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
             
             connection = DriverManager.getConnection(dbURL); 
 

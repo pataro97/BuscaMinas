@@ -1,14 +1,14 @@
 package minesweeper;
 
-
+/*
+*Casilla Pablo Tamayo
+*/
 
 public class Casilla 
 {
     private boolean mine;
 
-    /*
-     *  perrito chico
-     */
+  
        
     //Only the content of the Cell is visible to the player.
     private String content;

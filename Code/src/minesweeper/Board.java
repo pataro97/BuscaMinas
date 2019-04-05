@@ -9,7 +9,9 @@ import java.sql.Statement;
 import javafx.util.Pair;
 
 
-
+/*
+*Board Pablo Tamayo
+*/
 public class Board 
 {
     private int numberOfMines;	
@@ -158,7 +160,7 @@ public class Board
         boolean saveExists = false;
 
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
             
             connection = DriverManager.getConnection(dbURL); 
             statement = connection.createStatement();
@@ -195,7 +197,7 @@ public class Board
         ResultSet resultSet = null;
 
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
             
             connection = DriverManager.getConnection(dbURL); 
             
@@ -254,7 +256,7 @@ public class Board
         PreparedStatement statement = null;
         
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
             
             connection = DriverManager.getConnection(dbURL); 
 
@@ -288,7 +290,7 @@ public class Board
         PreparedStatement statement = null;
         
         try {
-            String dbURL = Game.dbPath; 
+            String dbURL = Juego.dbPath; 
             
             connection = DriverManager.getConnection(dbURL); 
 

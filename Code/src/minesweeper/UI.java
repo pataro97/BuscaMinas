@@ -6,7 +6,9 @@ import java.awt.*;
 import javax.swing.border.Border;
 import javax.swing.border.EtchedBorder;
 
-
+/*
+*UI Pablo
+*/
 public class UI extends JFrame
 {
     // The buttons
@@ -313,7 +315,7 @@ public class UI extends JFrame
     
     //---------------SET LISTENERS--------------------------//
     
-    public void setButtonListeners(Game game)
+    public void setButtonListeners(Juego game)
     {
         addWindowListener(game);
     
